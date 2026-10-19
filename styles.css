@@ -1,0 +1,214 @@
+:root {
+  --panel: rgba(7, 17, 28, 0.78);
+  --line: rgba(111, 169, 197, 0.55);
+  --text: #d3eaff;
+  --ok: #52e37c;
+  --enemy: #ff3b3b;
+  --friendly: #21da7c;
+  --civilian: #5bb8ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #050d16;
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+.hud {
+  width: min(1520px, 100vw);
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border: 1px solid rgba(174, 218, 255, 0.35);
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(4, 12, 20, 0.2), rgba(4, 12, 20, 0.3)),
+    url("https://github.com/user-attachments/assets/8bb98dd9-ae4b-4296-b640-36b0fe661fd3") center/cover no-repeat;
+}
+
+.panel {
+  backdrop-filter: blur(5px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.topbar,
+.bottombar {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  gap: 12px;
+}
+
+.topbar {
+  top: 10px;
+}
+
+.bottombar {
+  bottom: 10px;
+  font-size: 0.88rem;
+  flex-wrap: wrap;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 1.2px;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.status-row {
+  display: flex;
+  gap: 8px;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+}
+
+.left-panel {
+  position: absolute;
+  top: 122px;
+  left: 16px;
+  width: 180px;
+  padding: 8px;
+  display: grid;
+  gap: 8px;
+}
+
+.mode-btn {
+  text-align: left;
+  background: rgba(7, 17, 28, 0.9);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.mode-btn span {
+  display: block;
+  font-size: 0.72rem;
+  margin-top: 2px;
+  font-weight: 400;
+  opacity: 0.88;
+}
+
+.mode-btn.active {
+  border-color: var(--friendly);
+  box-shadow: inset 0 0 0 1px rgba(33, 218, 124, 0.55);
+}
+
+.hud-targets {
+  position: absolute;
+  inset: 0;
+}
+
+.target {
+  position: absolute;
+  border: 2px solid currentColor;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  background: rgba(5, 5, 5, 0.35);
+}
+
+.target.enemy { color: var(--enemy); }
+.target.friendly { color: var(--friendly); }
+.target.civilian { color: var(--civilian); }
+
+.right-panel {
+  position: absolute;
+  top: 92px;
+  right: 16px;
+  width: 260px;
+  display: grid;
+  gap: 10px;
+}
+
+.telemetry,
+.weapons {
+  padding: 10px;
+}
+
+.telemetry h2,
+.weapons h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.telemetry ul,
+.weapons ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.telemetry li,
+.weapons li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(211, 234, 255, 0.25);
+  padding-bottom: 4px;
+  font-size: 0.84rem;
+}
+
+.ok {
+  color: var(--ok);
+}
+
+@media (max-width: 1050px) {
+  .left-panel,
+  .right-panel {
+    position: static;
+    width: auto;
+    margin: 10px;
+  }
+
+  .hud {
+    aspect-ratio: auto;
+    min-height: 100vh;
+    padding-top: 74px;
+    padding-bottom: 64px;
+  }
+
+  .hud-targets {
+    display: none;
+  }
+
+  .topbar,
+  .bottombar {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    z-index: 10;
+  }
+
+  .topbar { top: 10px; }
+  .bottombar { bottom: 10px; }
+}

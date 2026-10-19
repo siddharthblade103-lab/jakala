@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drone Mission HUD</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="hud">
+      <header class="topbar panel">
+        <div class="brand">
+          <h1>BLADE INDUSTRIES</h1>
+          <p>INDIGENOUS AI DRONE SYSTEM</p>
+        </div>
+        <div class="status-row">
+          <div class="chip">LINK SECURE</div>
+          <div class="chip">SAT</div>
+          <div class="chip" id="clock">--:--:--</div>
+        </div>
+      </header>
+
+      <aside class="left-panel panel">
+        <button class="mode-btn active" data-mode="EO">EO <span>Electro-Optical</span></button>
+        <button class="mode-btn" data-mode="IR">IR <span>Thermal</span></button>
+        <button class="mode-btn" data-mode="NIR">NIR <span>Night Vision</span></button>
+        <button class="mode-btn" data-mode="LRF">LRF <span>Laser Range Finder</span></button>
+      </aside>
+
+      <section class="hud-targets">
+        <div class="target enemy" style="top: 34%; left: 18%;">ENEMY VEHICLE</div>
+        <div class="target friendly" style="top: 38%; left: 34%;">FRIENDLY</div>
+        <div class="target enemy" style="top: 34%; left: 47%;">ENEMY VEHICLE</div>
+        <div class="target enemy" style="top: 46%; left: 65%;">ENEMY INFANTRY</div>
+        <div class="target civilian" style="top: 72%; left: 64%;">CIVILIAN</div>
+      </section>
+
+      <aside class="right-panel">
+        <section class="panel telemetry">
+          <h2>Telemetry</h2>
+          <ul>
+            <li><span>ALT</span><strong id="altitude">320 m</strong></li>
+            <li><span>SPD</span><strong id="speed">64 km/h</strong></li>
+            <li><span>V/S</span><strong id="vspeed">0.3 m/s</strong></li>
+          </ul>
+        </section>
+        <section class="panel weapons">
+          <h2>Weapon Status</h2>
+          <ul>
+            <li>Micro Strike <strong class="ok">READY 8/8</strong></li>
+            <li>SFF-50 <strong class="ok">READY 1/2</strong></li>
+            <li>RPG Drone Kit <strong class="ok">READY 3/3</strong></li>
+          </ul>
+        </section>
+      </aside>
+
+      <footer class="bottombar panel">
+        <div class="foot-item">DRONE ID: <strong>BLADE-VAYU-3</strong></div>
+        <div class="foot-item">MISSION: <strong>BORDER RECON</strong></div>
+        <div class="foot-item">BAT: <strong id="battery">68%</strong></div>
+        <div class="foot-item">RANGE: <strong>120 km</strong></div>
+        <div class="foot-item">ENDURANCE: <strong>4.5 hrs</strong></div>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
